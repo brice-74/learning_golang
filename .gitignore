@@ -1,1 +1,5 @@
+# personnal documentations
 doc/*
+# binary files
+**/*.exe
+**/bin
