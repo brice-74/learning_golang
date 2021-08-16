@@ -14,13 +14,17 @@ func secureHeaders(next http.Handler) http.Handler {
 	})
 }
 
+
 func (app *application) logRequest(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		app.infoLog.Printf("%s - %s %s %s", r.RemoteAddr, r.Proto, r.Method, r.URL.RequestURI())
+		o := &responseObserver{ResponseWriter: w}
+		
+		next.ServeHTTP(o, r)
 
-		next.ServeHTTP(w, r)
+		app.infoLog.Printf("%s --> %d %s %s %s", r.RemoteAddr, o.status, r.Proto, r.Method, r.URL.RequestURI())
 	})
 }
+
 
 func (app *application) recoverPanic(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
