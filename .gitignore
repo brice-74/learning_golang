@@ -3,3 +3,5 @@ doc/*
 # binary files
 **/*.exe
 **/bin
+#keys & certif
+**/tls
