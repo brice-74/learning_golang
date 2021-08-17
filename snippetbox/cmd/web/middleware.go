@@ -21,7 +21,7 @@ func (app *application) logRequest(next http.Handler) http.Handler {
 		
 		next.ServeHTTP(o, r)
 
-		app.infoLog.Printf("%s --> %d %s %s %s", r.RemoteAddr, o.status, r.Proto, r.Method, r.URL.RequestURI())
+		app.infoLog.Printf("%s --> %s %s %s %s", r.RemoteAddr, statusCodeColor(o.status), r.Proto, Info(r.Method), r.URL.RequestURI())
 	})
 }
 

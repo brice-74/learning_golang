@@ -26,8 +26,8 @@ func main() {
 	dsn := flag.String("dsn", "root:root@/snippetbox?parseTime=true", "MySQL data source name")
 	flag.Parse()
 
-	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
-	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+	infoLog := log.New(os.Stdout, Info("INFO\t"), log.Ldate|log.Ltime)
+	errorLog := log.New(os.Stderr, Err("ERROR\t"), log.Ldate|log.Ltime|log.Lshortfile)
 
 	db, err := openDB(*dsn)
 	if err != nil {

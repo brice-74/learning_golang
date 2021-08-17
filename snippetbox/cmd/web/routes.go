@@ -8,7 +8,7 @@ import (
 )
 
 func (app *application) routes() http.Handler {
-	standardMiddleware := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
+	standardMiddleware := alice.New(app.logRequest, app.recoverPanic, secureHeaders)
 
 	mux := pat.New()
 	mux.Get("/", http.HandlerFunc(app.home))
