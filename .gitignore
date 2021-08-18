@@ -3,5 +3,7 @@ doc/*
 # binary files
 **/*.exe
 **/bin
-#keys & certif
+# keys & certif
 **/tls
+# tempo files
+**/tmp
