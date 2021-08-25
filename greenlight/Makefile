@@ -2,9 +2,9 @@ include .env
 #export $(shell sed 's/=.*//' .env)
 
 PROJECT_DIR="."
-UPDOWN_FILE="create_x_table"
-migrate-files:
-	migrate create -seq -ext=.sql -dir=$(PROJECT_DIR)/migrations $(UPDOWN_FILE)
+FILE_NAME="create_x_table"
+migrate-create:
+	migrate create -seq -ext=.sql -dir=$(PROJECT_DIR)/migrations $(FILE_NAME)
 migrate-up:
 	migrate -path=./migrations -database=$(GREENLIGHT_DB_DSN) up
 migrate-down:
