@@ -1,4 +1,4 @@
-# personnal documentations
+# personnal doc
 doc/*
 # binary files
 **/*.exe
@@ -7,3 +7,5 @@ doc/*
 **/tls
 # tempo files
 **/tmp
+# env var
+**/.env
